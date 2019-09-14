@@ -1,10 +1,10 @@
 This is a simple Java console version of the game Snake.
-This current version is roughly 80% complete.
+This current version is roughly 95% complete.
 
 TO DO:
-    -Starting screen
-    -Game Over
-    -Score Tracking
+
+    -Game Over (When snake collides with itself)
+    -Stop food from sometimes spawning where the snake is, causing there to be no food
 
 The idea of this project was to continue to grow my knowledge and skills regarding Java. 
 This project was created with classes, data structures, and basic algorithms, and has expanded my knowledge 
