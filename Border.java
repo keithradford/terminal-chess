@@ -8,13 +8,13 @@ public class Border {
         this.height = height;
         this.width = width;
         this.board = new char[this.width][this.height];
-    }//constructor
+    }// constructor
 
-    public int getHeight(){
+    public int getHeight() {
         return this.height;
     }
 
-    public int getWidth(){
+    public int getWidth() {
         return this.width;
     }
 
@@ -31,7 +31,7 @@ public class Border {
                     this.board[x][y] = ' ';
             }
         }
-    }//algorithm to create outline
+    }// algorithm to create outline
 
     public void render(Snake s) {
         for (int y = 0; y < this.height; y++) {
@@ -42,19 +42,19 @@ public class Border {
                     System.out.print(this.board[x][y]);
             }
         }
-        System.out.println("\nScore: "+s.getScore());
-    }//prints border
+        System.out.println("\nScore: " + s.getScore());
+    }// prints border
 
-    public void replace(int x, int y, char ch){
+    public void replace(int x, int y, char ch) {
         this.board[x][y] = ch;
-    }//replace location with new char
+    }// replace location with new char
 
-    public void snake(int x, int y){
+    public void snake(int x, int y) {
         this.board[x][y] = 'X';
-    }//place snake
+    }// place snake
 
-    public void food(int x, int y){
+    public void food(int x, int y) {
         this.board[x][y] = 'O';
-    }//place food
- 
-} 
+    }// place food
+
+}

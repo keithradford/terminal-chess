@@ -1,22 +1,22 @@
-public class Food{
-    
+public class Food {
+
     private int x;
     private int y;
 
-    public Food(){
+    public Food() {
         this.x = 0;
         this.y = 0;
-    }//constructor
+    }// constructor
 
-    public int getX(){
+    public int getX() {
         return this.x;
     }
 
-    public int getY(){
+    public int getY() {
         return this.y;
     }
 
-   /* public boolean checkSnake(Snake s){
+    /* public boolean checkSnake(Snake s){
         Node tmp = s.getTail();
         if(s.getTail() == s.getHead()){
             if((s.getHead().getX() == this.x) && (this.y == s.getHead().getX()))
@@ -32,8 +32,8 @@ public class Food{
         return false;
     }*/
 
-    public void randomizer(int w, int h){
-        this.x = (int)(Math.random() * ((w - 2) + 1)) + 1;
-        this.y = (int)(Math.random() * ((h - 2) + 1)) + 1;
-    }//randomize location
+    public void randomizer(int w, int h) {
+        this.x = (int) (Math.random() * ((w - 2) + 1)) + 1;
+        this.y = (int) (Math.random() * ((h - 2) + 1)) + 1;
+    }// randomize location
 }
