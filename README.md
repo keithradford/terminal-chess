@@ -17,3 +17,4 @@ This was one of my first projects after learning how to code, thus I have plans 
 
 - Implement "AI" mode which determines all moves ahead of time and iterates through them
       similar to Battlesnake.
+- Implement UI
