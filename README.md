@@ -1,20 +1,5 @@
-# Console Snake
+# Terminal Chess
 
-This is a simple version of the game snake made using Java, played in a terminal.
-This project served as practice with object-oriented programming and general programming practices.
+The game of chess using much of the logic from one of my first programming projects, [Java Console Snake](https://github.com/keithradford/Java-Console-Snake). 
 
-This was one of my first projects after learning how to code, thus I have plans to revisit this to make improvements and implement better practices.
-
-### TO DO:
-
-- Clean up code.
-- Game over when snake collides with itself
-- Stop food from sometimes spawning where the snake is, causing there to be no food
-- Improve scoring system
-- Make custom board sizes
-
-### FUTURE CONSIDERATIONS:
-
-- Implement "AI" mode which determines all moves ahead of time and iterates through them
-      similar to Battlesnake.
-- Implement UI
+As mentioned, Java Console Snake was one of my first projects after learning how to code, thus the project itself is quite messy. The goal of this project is to capture the idea of making a game with Java played through the terminal, but with a more feasible game, chess. 
