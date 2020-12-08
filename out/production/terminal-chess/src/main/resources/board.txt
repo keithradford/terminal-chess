@@ -1,0 +1,10 @@
++--------+
+|rnbqkbnr|
+|pppppppp|
+|        |
+|        |
+|        |
+|        |
+|PPPPPPPP|
+|RNBQKBNR|
++--------+
