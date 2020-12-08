@@ -4,10 +4,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Game {
-
-    private static int WIDTH = 20;
-    private static int HEIGHT = 10;
-
     private static Scanner scanner = new Scanner(System.in);
     private static String sInput;
     private static boolean run = false;
@@ -71,15 +67,17 @@ public class Game {
                 System.out.println("\nWhite to move: ");
                 toMove = 1;
                 sInput = scanner.nextLine().strip();
-                Move move = new Move(sInput, white);
-                System.out.println("Move: " + move.getMove() + "Is a valid move?: " + move.isValid());
+                Move move = new Move(sInput, white, board);
+                System.out.println("Move: " + move.getMove() + " " + move.getMove().length() + " is a valid move?: " + move.isValid());
+                move.makeMove();
             }
             else{
                 System.out.println("\nBlack to move: ");
                 toMove = 0;
                 sInput = scanner.nextLine().strip();
-                Move move = new Move(sInput, black);
+                Move move = new Move(sInput, black, board);
                 System.out.println("Move: " + move.getMove() + " Is a valid move?: " + move.isValid());
+                move.makeMove();
             }
 
 //            } catch (StringIndexOutOfBoundsException e) {

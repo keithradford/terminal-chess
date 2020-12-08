@@ -14,4 +14,8 @@ public class Player {
         else
             return "Black";
     }
+
+    public Boolean isInCheck(){
+        return false;
+    }
 }
