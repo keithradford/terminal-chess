@@ -67,17 +67,17 @@ public class Game {
                 System.out.println("\nWhite to move: ");
                 toMove = 1;
                 sInput = scanner.nextLine().strip();
-                Move move = new Move(sInput, white, board);
-                System.out.println("Move: " + move.getMove() + " " + move.getMove().length() + " is a valid move?: " + move.isValid());
-                move.makeMove();
+                // Move move = new Move(sInput, white, board);
+                // System.out.println("Move: " + move.getMove() + " " + move.getMove().length() + " is a valid move?: " + move.isValid());
+                // move.makeMove();
             }
             else{
                 System.out.println("\nBlack to move: ");
                 toMove = 0;
                 sInput = scanner.nextLine().strip();
-                Move move = new Move(sInput, black, board);
-                System.out.println("Move: " + move.getMove() + " Is a valid move?: " + move.isValid());
-                move.makeMove();
+                // Move move = new Move(sInput, black, board);
+                // System.out.println("Move: " + move.getMove() + " Is a valid move?: " + move.isValid());
+                // move.makeMove();
             }
 
 //            } catch (StringIndexOutOfBoundsException e) {
