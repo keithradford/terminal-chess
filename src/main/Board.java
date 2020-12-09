@@ -58,7 +58,7 @@ public class Board {
                 character != '|' &&
                 character != ' '
             ){
-                System.out.println("character: " + character + " " + j + " " + intToRank(i - 1));
+                // System.out.println("character: " + character + " " + j + " " + intToRank(i - 1));
                 Piece p = new Piece(character, j, intToRank(i - 1));
                 pieces.add(p);
             }
@@ -83,8 +83,8 @@ public class Board {
             else{
                 toPut = Character.toLowerCase(p.getPiece());
             }
-            // System.out.println(p.getPiece() + " " + (Character.getNumericValue(p.getRank()) - 9) + " " + p.getFile());
-            this.board[Character.getNumericValue(p.getRank()) - 9][p.getFile()] = toPut;
+            System.out.println(p.getPiece() + " " + (Character.getNumericValue(p.getFile()) - 9) + " " + p.getRank());
+            this.board[Character.getNumericValue(p.getFile()) - 9][p.getRank()] = toPut;
         }
 
         for (int y = 0; y < 10; y++) {

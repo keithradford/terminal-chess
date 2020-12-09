@@ -16,27 +16,27 @@ public class Move {
     }
 
     private char getFile(){
-        Pattern pattern = Pattern.compile("[1-8]", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("(?:[KQNBR]|[a-h])([a-h])", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(this.move);
         char match = '\0';
         while (matcher.find()) {
             // Get the group matched using group() method
-            match = matcher.group().charAt(0);
+            match = matcher.group(1).charAt(0);
         }
-        System.out.println("rank to move to: " + match);
+        System.out.println("file to move to: " + match);
         return match;
     }
 
     private int getRank(){
-        Pattern pattern = Pattern.compile("(?:[KQNBR]|[a-h])([a-h])", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("[1-8]", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(this.move);
         int match = 0;
         while (matcher.find()) {
             // Get the group matched using group() method
-            match = Character.getNumericValue(matcher.group(1).charAt(0));
+            match = Character.getNumericValue(matcher.group().charAt(0));
         }
-        System.out.println("file to move to: " + match);
-        return match - 9;
+        System.out.println("rank to move to: " + match);
+        return match;
     }
 
     private char getPiece(){
@@ -71,7 +71,7 @@ public class Move {
             p = pieces.get(i);
             if(p.isEquals(toMove)){
                 pieces.set(i, toMove);
-                board[Character.getNumericValue(p.getRank()) - 9][p.getFile()] = ' ';
+                board[Character.getNumericValue(p.getFile()) - 9][p.getRank()] = ' ';
 
                 this.board.setBoard(board);
                 this.board.setPieces(pieces);
