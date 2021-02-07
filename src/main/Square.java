@@ -20,4 +20,22 @@ public class Square {
     public Piece getOccupant() {
         return occupant;
     }
+
+    public char getFile() {
+        return file;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setOccupant(Piece occupant) {
+        this.occupant = occupant;
+    }
+
+    public Boolean isEqual(Square s){
+        if (s.getFile() == this.file && s.getRank() == this.rank)
+            return true;
+        return false;
+    }
 }

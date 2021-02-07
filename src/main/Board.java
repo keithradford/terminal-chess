@@ -2,11 +2,13 @@ package src.main;
 
 import java.io.*;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Board {
-    private static int SIZE = 10;
+    private static int SIZE = 18;
+
     private String path;
     private Square[][] board;
     private List<Square> squares = new LinkedList<Square>();
@@ -36,31 +38,31 @@ public class Board {
         URL path = Board.class.getResource(this.path);
         File file = new File(path.getFile());
         FileReader fileReader = new FileReader(file);
-        int c, i, j;
+        int c, i, j, k;
         i = 0;
         j = 0;
+        k = 0;
 
-        //TODO: Fix new line problem to be more flexible
-        while((c = fileReader.read()) != -1){
+        // TODO: Fix new line problem to be more flexible
+        while ((c = fileReader.read()) != -1) {
+            Character[] piecesArray = new Character[] { 'r', 'n', 'b', 'q', 'k', 'p' };
+            List<Character> pieces = Arrays.asList(piecesArray);
+
             char character = (char) c;
             Piece p = new Piece(character, this);
-            Square s = new Square(j, intToFile(i - 1), p);
-            if(character == '\r'){
+            Square s = new Square(j, intToFile(k), p);
+            if (character == '\r') {
                 i = 0;
+                k = 0;
                 j++;
                 continue;
             }
-            if(character == '\n'){
+            if (character == '\n') {
                 continue;
             }
-            if(
-                character != ' ' &&
-                character != '+' &&
-                character != '-' &&
-                character != '|' &&
-                character != ' '
-            ){
+            if (pieces.contains(Character.toLowerCase(p.getPiece()))) {
                 squares.add(s);
+                k++;
             }
             this.board[i][j] = s;
             i++;
@@ -68,33 +70,27 @@ public class Board {
     }// algorithm to create outline
 
     public void render() {
-        // int size = this.squares.size();
-        // for(int i = 0; i < size; i++){
-        //     Square s = this.squares.get(i);
-        //     char toPut;
-        //     if(p.getColour() == 'w'){
-        //         toPut = Character.toUpperCase(p.getPiece());
-        //     }
-        //     else{
-        //         toPut = Character.toLowerCase(p.getPiece());
-        //     }
-        //     // System.out.println(p.getPiece() + " " + (Character.getNumericValue(p.getFile()) - 9) + " " + p.getRank());
-        //     this.board[Character.getNumericValue(p.getFile()) - 9][p.getRank()] = toPut;
-        // }
-
-        for (int y = 0; y < 10; y++) {
-            for (int x = 0; x < 10; x++) {
+        for (int y = 0; y < SIZE; y++) {
+            for (int x = 0; x < SIZE; x++) {
+                if (this.board[x][y] == null) {
+                    return;
+                }
                 Piece p = this.board[x][y].getOccupant();
-                if (x == 0)
-                    System.out.print("\n" + p.getPiece());
-                else
-                    System.out.print(p.getPiece());
+                char toPut = p.getPiece();
+                if (x == 0) {
+                    System.out.print("\n" + toPut);
+                    continue;
+                }
+                if (p.getColour() == 'w')
+                    toPut = Character.toUpperCase(toPut);
+
+                System.out.print(toPut);
             }
         }
-//        System.out.println("\nScore: " + s.getScore());
+        // System.out.println("\nScore: " + s.getScore());
     }// prints border
 
-    private char intToFile(int n){
+    private char intToFile(int n) {
         switch (n) {
             case 0:
                 return 'a';
@@ -125,17 +121,4 @@ public class Board {
         }
         return '\0';
     }
-//
-//    public void replace(int x, int y, char ch) {
-//        this.board[x][y] = ch;
-//    }// replace location with new char
-//
-//    public void snake(int x, int y) {
-//        this.board[x][y] = 'X';
-//    }// place snake
-//
-//    public void food(int x, int y) {
-//        this.board[x][y] = 'O';
-//    }// place food
-
 }
