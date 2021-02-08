@@ -49,7 +49,7 @@ public class Board {
             List<Character> pieces = Arrays.asList(piecesArray);
 
             char character = (char) c;
-            Piece p = new Piece(character, this);
+            Piece p = new Piece(character, j, intToFile(k), this);
             Square s = new Square(j, intToFile(k), p);
             if (character == '\r') {
                 i = 0;

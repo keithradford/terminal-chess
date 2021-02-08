@@ -6,21 +6,31 @@ import java.util.List;
 public class Piece {
     private char piece;
     private char colour;
+    private char file;
+    private int rank;
     private Board board;
     private List<String> possibleMoves;
 
-    public Piece(char piece, Board board){
+    public Piece(char piece, int rank, char file, Board board) {
         this.piece = Character.toLowerCase(piece);
-        if(Character.isUpperCase(piece))
+        if (Character.isUpperCase(piece))
             this.colour = 'w';
         else
             this.colour = 'b';
         this.board = board;
+        this.rank = rank;
+        this.file = file;
     }
 
     public List<String> getPossibleMoves() {
-        if(this.piece == 'p')
-            return pawnMoves();
+        switch (this.piece) {
+            case 'p':
+                return pawnMoves();
+
+            default:
+                break;
+        }
+
         return possibleMoves;
     }
 
@@ -28,14 +38,9 @@ public class Piece {
     // check diagonals for captures
     public List<String> pawnMoves() {
         List<String> m = new LinkedList<String>();
-        // char[][] b = this.board.getBoard();
-        // String tmp = "";
-        // StringBuilder sb = new StringBuilder(tmp);
-        // if(this.colour == 'w'){
-        //     if(b[Character.getNumericValue(this.file) - 9][this.rank + 1] == ' '){
-        //         sb.setCharAt(0, this.file);
-        //     }
-        // }
+        if (this.colour == 'b') {
+            // for(int j = )
+        }
         return possibleMoves;
     }
 
@@ -67,10 +72,8 @@ public class Piece {
         return piece;
     }
 
-    public Boolean isEquals(Piece p){
-        if(
-            p.getPiece() == this.piece
-        )
+    public Boolean isEquals(Piece p) {
+        if (p.getPiece() == this.piece)
             return true;
 
         return false;
